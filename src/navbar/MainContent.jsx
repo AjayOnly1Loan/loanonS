@@ -3,7 +3,7 @@ import { Box, Typography, Button } from '@mui/material';
 import ImageSlider from '../component/ImageSlider';
 import LoanCalculator from '../component/LoanCalculator';
 import LoanCalculate from './LoanCalculate';
-import UnsecuredLoan from '../component/LoanComponent';
+import UnsecuredLoan from '../component/Loan';
 import DocumentEligible from '../component/DocumenEligible';
 import SortFAQ from './SortFAQ';
 import { useInView } from 'react-intersection-observer';
@@ -12,6 +12,7 @@ import { useInView } from 'react-intersection-observer';
 import Img2 from '../assets/image/slider5.jpg';
 import Img4 from '../assets/image/head.jpg';
 import Img3 from '../assets/image/LOan100dya.png';
+import Loan from '../component/Loan';
 
 const images = [
   { src: Img2, alt: "Image 1" },
@@ -68,29 +69,33 @@ function MainContent() {
         }}
       >
         {/* Left Section: Heading */}
-        <Box
+              <Box
+        sx={{
+          marginTop: 13,
+          flex: 1,
+          textAlign: 'left',
+          zIndex: 1,
+          marginRight: { xs: '0', md: '40px' },
+          marginBottom: { xs: '20px', md: '0' }, // Add spacing for small screens
+        }}
+      >
+        <Typography
+          variant="h2"
+          fontWeight="bold"
+          color="black"
+          mb={1}
           sx={{
-
-            flex: 1,
-            textAlign: 'left',
-            zIndex: 1,
-            marginRight: { xs: '0', md: '40px' },
-            marginBottom: { xs: '20px', md: '0' }, // Add spacing for small screens
+            marginTop: '100px',
+            textAlign: 'center', // Centers text horizontally
+            margin: '0 auto', // Ensures component itself is horizontally centered
+            fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' },
+            textShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)', // Adds a shadow to the text
           }}
         >
-          <Typography
-            variant="h2"
-            fontWeight="bold"
-            color="black"
-            mb={1}
-            sx={{
-              marginLeft: { xs: 2, sm: 10 },
-              fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' },
-            }}
-          >
-            Who Are We?
-          </Typography>
-        </Box>
+          ABOUT US
+        </Typography>
+      </Box>
+
 
         {/* Right Section: Content */}
         <Box
@@ -124,12 +129,13 @@ function MainContent() {
             variant="contained"
             href="/about-us"
             sx={{
+              
               backgroundColor: 'black',
               color: 'white',
               borderRadius: '80px',
               fontWeight: 'bold',
               fontSize: { xs: '14px', sm: '16px' },
-              padding: { xs: '8px 16px', sm: '6px 30px' },
+              padding: { xs: '8px 16px', sm: '6px 220px' },
               '&:hover': {
                 backgroundColor: '#FFAA00',
               },
@@ -143,7 +149,7 @@ function MainContent() {
       {/* Other Components */}
       <LoanCalculator />
       <LoanCalculate />
-      <UnsecuredLoan />
+      <Loan />
       <DocumentEligible />
       <SortFAQ />
     </div>

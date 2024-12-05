@@ -50,7 +50,7 @@ const ImageSlider = ({ images, duration = 5000 }) => {
   return (
     <Box
       ref={sliderRef}
-      sx={{            borderRadius:'80px',
+      sx={{           
 
         position: 'relative',
         overflow: 'hidden',
@@ -61,7 +61,6 @@ const ImageSlider = ({ images, duration = 5000 }) => {
         <Box
           key={index}
           sx={{
-            borderRadius:'80px',
             position: 'absolute',
             top: 0,
             left: 0,

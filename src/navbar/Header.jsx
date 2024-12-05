@@ -6,7 +6,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import PaymentIcon from '@mui/icons-material/Payment';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import logo from '../assets/image/Logo_changes_salaryonloan-removebg-preview.png'; // Adjust the path based on your structure
+import logo from '../assets/image/Loan On Salary Logo.svg'; // Adjust the path based on your structure
 import { Menu } from '@mui/icons-material';
 import { keyframes } from '@mui/system';
 
@@ -32,7 +32,7 @@ const Header = () => {
     <>
      
       {/* Navbar */}
-      <AppBar position="sticky" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', borderRadius: '50px', backdropFilter: 'blur(5px)' }}>
+      <AppBar position="sticky" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap', minHeight: '80px' }}> {/* Adjusted height */}
           <Link to="/" onClick={scrollToTop} style={{ display: 'flex', alignItems: 'center', zIndex: 10 }}>
             <img src={logo} alt="Logo" style={{ width: '100px', height: '80px', objectFit: 'contain', zIndex: 10 }} /> {/* Adjusted logo size */}

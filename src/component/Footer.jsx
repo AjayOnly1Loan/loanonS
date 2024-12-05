@@ -1,7 +1,7 @@
 import React from 'react';
 import { Email, Phone, LocationOn, Facebook, Twitter, LinkedIn, Instagram, YouTube } from '@mui/icons-material'; 
 import { Container, Grid, Typography, Link, Box } from '@mui/material';
-import logo from '../assets/image/Logo changes salaryonloan (1).png'; // Adjust the path based on your directory structure
+import logo from '../assets/image/white Loan On Salary Logo.svg'; // Adjust the path based on your directory structure
 
 const Footer = () => {
   return (
