@@ -1,0 +1,359 @@
+
+/* Additional styles for very small screens (like 414x894) */
+@media (max-width: 414px) {
+    .page-header {
+        height: 20px; /* Set height specifically for the 414px screen width */
+        padding: 10px; /* Consistent padding for small screens */
+        display: flex; /* Flexbox for centering content */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+    }
+}
+
+/* About Us Section */
+.about-one {
+    padding: 80px 0; /* Increased padding */
+    background-color: #f9f9f9;
+}
+
+.about-one__content {
+    text-align: center;
+}
+
+.about-one__content h3 {
+    color: rgb(18, 18, 80);
+    font-weight: 700;
+    font-size: xx-large;
+    text-shadow: 1px 1px 2px black;
+}
+
+.about-one__content p {
+    text-decoration-color: #043d7a;
+}
+.about-one__content p:hover {
+    text-decoration-color: #055cb9;
+}
+
+.section-title {
+    font-size: 3rem; /* Increased font size */
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px; /* Increased margin */
+}
+
+.about-one p {
+    font-size: 1.2rem; /* Increased font size */
+    line-height: 2; /* Increased line height */
+    color: black;
+    margin-bottom: 30px; /* Increased margin */
+}
+
+.about-one h4 {
+    font-size: 2rem; /* Increased font size */
+    font-weight: normal;
+    color: #3498db;
+    margin-bottom: 30px; /* Increased margin */
+}
+
+/* Vision Section */
+.vision-section {
+    padding: 40px 20px; /* Increased padding for better spacing */
+    background-color:rgb(248, 245, 245); /* Light blue background for the vision section */
+    display: flex;
+    flex-direction: row; /* Align vision image and text side by side */
+    align-items: center;
+    justify-content: space-between; /* Space between image and text */
+}
+
+.vision-section img {
+    max-width: 40%; /* Image takes 40% of the width */
+    margin-left: 40px; /* Space between image and text */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+.vision-section img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.vision-section h3 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.vision-section p {
+    font-size: 1rem;
+    color: black; /* Darker text for better readability */
+    text-align: left;
+    max-width: 100%; /* Text takes up to 50% of the width */
+    margin-left: 30px;
+}
+
+/* Text Box Hover Effect */
+.vision-text-box,
+.mission-text-box {
+    background: #fff; /* White background for text boxes */
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+    margin: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+.vision-text-box:hover,
+.mission-text-box:hover {
+    color: #007bff;
+    transform: translateY(-5px); /* Lift the box on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 40px 20px; /* Increased padding for better spacing */
+    background-color: #f9f9f9; /* Light background for contrast */
+    display: flex;
+    flex-direction: row-reverse; /* Reverse for mission to make image on left */
+    align-items: center;
+    justify-content: space-between; /* Space between image and text */
+}
+
+.mission-section img {
+    max-width: 40%; /* Image takes 40% of the width */
+    margin-right: 80px; /* Space between image and text */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+.mission-section img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.mission-section h3 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    text-align: left;
+
+
+}
+
+.mission-section p {
+    font-size: 1rem;
+    color:black; /* Darker text for better readability */
+    text-align: left;
+    max-width: 100%; /* Text takes up to 50% of the width */
+    margin-left: 30px; /* Added left margin for distance from the image */
+}
+
+/* Why Choose Us Section */
+/* Why Choose Us Section */
+.why-choose-us {
+    border: 2px solid rgb(214, 214, 214);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px 0;
+    background: #e0f7fa;
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 20px; /* Space above the section */
+    text-align: center; /* Center text alignment */
+  }
+  
+  .why-choose-us h3 {
+    font-size: 2.5rem;
+    color: #7597bd; /* Darker text color */
+    margin-bottom: 30px; /* Space below title */
+  }
+  
+  .why-choose-us h3:hover {
+    color: #f0f2f5; /* Hover color for the title */
+  }
+  
+  .why-choose-us__items {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: center; /* Center items */
+  }
+  
+  /* Make sure each item takes up half the row on larger screens */
+  .choose-us__item {
+    background: #fff; /* White background for item cards */
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for comfort */
+    margin: 15px; /* Space between items */
+    width: calc(50% - 30px); /* Adjust width for two items per row */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .choose-us__item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+  
+  .choose-us__item h4 {
+    font-size: 1.5rem; /* Font size for headings */
+    color: #0b2747; /* Primary color for headings */
+    margin-bottom: 10px; /* Space below headings */
+  }
+  
+  .choose-us__item p {
+    font-size: 1rem; /* Font size for paragraph */
+    color: #555; /* Darker grey for text */
+    line-height: 1.5; /* Improved readability */
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .choose-us__item {
+      width: 90%; /* Full width on smaller screens */
+      max-width: 400px; /* Limit max width */
+      margin: 10px 0; /* Vertical spacing */
+    }
+  
+    .why-choose-us__items {
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: center; /* Center items */
+    }
+  }
+  /* Call to Action Section */
+.call-to-action {
+    background: whitesmoke;
+    padding: 70px 0; /* Increased padding */
+    color: #333;
+    text-align: center;
+    height: 60vh; /* Full height */
+}
+
+.call-to-action h3 {
+    font-size: 2.5rem; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 30px; /* Increased margin */
+}
+
+.call-to-action p {
+    font-size: 1.3rem; /* Increased font size */
+    margin-bottom: 40px; /* Increased margin */
+}
+
+.cta-btn {
+    background-color: #0b2747;
+    color: white;
+    font-size: 1.5rem; /* Increased font size */
+    padding: 15px 35px; /* Increased padding */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-10px);
+
+    background-color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem; /* Adjusted for smaller screens */
+    }
+
+    .about-one p {
+        font-size: 1.2rem; /* Increased font size for smaller screens */
+    }
+
+    .vision-section,
+    .mission-section {
+        flex-direction: column; /* Stack the image and text on smaller screens */
+    }
+
+    .vision-section img,
+    .mission-section img {
+        max-width: 80%; /* Adjusted for smaller screens */
+        margin: 0 0 20px 0; /* Added bottom margin */
+    }
+
+    .vision-section h3,
+    .mission-section h3 {
+        font-size: 2rem; /* Adjusted for smaller screens */
+        margin-left: 0; /* Reset margin for smaller screens */
+    }
+
+    .vision-section p,
+    .mission-section p {
+        font-size: 1.2rem; /* Adjusted for smaller screens */
+        margin-left: 0; /* Reset margin for smaller screens */
+    }
+
+    .choose-us__item {
+        width: 100%; /* Full width on smaller screens */
+        margin: 10px 0; /* Vertical spacing */
+    }
+}
+/* Loan Process Section Styling */
+.loan-process-section {
+  padding: 60px 0;
+  background: #ffebee; /* Example gradient, adjust as needed */
+}
+
+.process-card {
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  box-shadow: 10px 10px 20px #565656, -10px -10px 20px #474646;
+  height: 300px; /* Set a fixed height */
+}
+
+.process-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 15px 15px 30px #cccccc, -15px -15px 30px #ffffff;
+}
+
+.icon-box {
+  background-color:#0b2747;
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 15px rgba(0, 123, 255, 0.3);
+}
+
+.process-icon {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.process-title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+.loan-process-title {
+    transition: text-shadow 0.3s ease; /* Smooth transition for shadow effect */
+  }
+  
+  .loan-process-title:hover {
+    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8); /* Adjust shadow color and blur as needed */
+  }
+  
+
+@media (max-width: 768px) {
+  .process-card {
+    margin-bottom: 20px;
+    height: auto; /* Allow for flexible height on smaller screens */
+  }
+}
+.join-speedloans {
+    flex-direction: column; /* Stack children vertically */
+    text-align: left; /* Ensure all text is left-aligned */
+    margin: 30px; /* Adjust as needed */
+    height: 50vh; /* Full height to ensure vertical centering */
+  }
+  
+  .rounded-circle {
+    border-radius: 70%; /* Make sure the image is rounded */
+    margin-bottom: 20px; /* Space below the image */
+  }
+  

@@ -1,0 +1,151 @@
+.slider-root {
+  overflow: hidden; /* Prevent overflow */
+  display: flex;
+  height: 100vh; /* Full screen height */
+  position: relative;
+}
+
+.img-container {
+  position: relative; /* Keep relative for correct positioning */
+  width: 100%;
+  height: 100%; /* Fill the slider height */
+}
+
+.slider-img {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure images fill the container */
+  object-fit: cover; /* Cover the entire container */
+  transition: opacity 0.5s ease-in-out, transform 2s ease-in-out; /* Smooth fade transition and zoom */
+  opacity: 0; /* Initially hidden */
+  transform: scale(1.1); /* Slightly zoomed in */
+}
+
+.active-img {
+  opacity: 1; /* Make the active image visible */
+  transform: scale(1); /* Return to original scale when active */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.apply-button {
+  margin-top: 20px; /* Space between text and button */
+  padding: 10px 20px; /* Button padding */
+  background-color: #0b2747; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  animation: blink 1s infinite; /* Blinking effect */
+}
+
+/* Blinking effect */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Remove hover effect for stability */
+.apply-button:hover {
+  background-color: #201952; /* Keep the same color on hover */
+}
+
+/* Text overlay styles */
+.text-overlay {
+  position: absolute;
+  bottom: 40%; /* Increase this value to move text higher */
+  left: 20px; /* Margin from the left */
+  color: #123e71; /* Text color */
+  text-align: left; /* Align text to the left */
+  font-size: 2.2rem; /* Font size */
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Start slightly lower */
+  animation: slideIn 1s forwards; /* Slide in effect */
+  line-height: 1.2; /* Space between lines */
+  font-weight: bold; /* Increased font weight */
+  text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.7); /* White shadow with increased spread */
+}
+
+/* Different animations for text1 and text2 */
+.text1 {
+  animation: slideInLeft 1s forwards; /* Slide in from left */
+}
+
+.text2 {
+  animation: slideInRight 1s forwards; /* Slide in from right */
+}
+
+/* Keyframes for slideIn effect */
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Start transparent */
+    transform: translateY(20px); /* Start lower */
+  }
+  to {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px); /* Slide in from left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px); /* Slide in from right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Optional: For mobile responsiveness */
+@media (max-width: 768px) {
+  .slider-root {
+    height: 25vh; /* Adjust height for smaller screens if needed */
+  }
+
+  .text-overlay {
+    font-size: 1.1rem; /* Corrected font size */
+    padding: 10px;
+    position: absolute; /* Position it absolutely within the slider */
+    top: 50%; /* Center vertically */
+    left: 20px; /* Align to the left */
+    transform: translateY(-50%); /* Adjust for true vertical center */
+    z-index: 1; /* Ensure it's above other elements */
+    text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.7); /* White shadow with increased spread */
+  }
+}
+
+@media (max-width: 840px) {
+  .slider-root {
+    height: 25vh; /* Adjust height for smaller screens if needed */
+  }
+}
+
+@media (max-width: 1180px) {
+  .slider-root {
+    height: 40vh; /* Adjust height for smaller screens if needed */
+  }
+}

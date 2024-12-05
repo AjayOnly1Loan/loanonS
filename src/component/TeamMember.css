@@ -1,0 +1,91 @@
+.eligible-person-container {
+  background: linear-gradient(135deg, #0b2747, #136654, #91d4c6); /* Example gradient, adjust as needed */
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #fff;
+}
+
+.eligible-person-container h2 {
+  font-size: 24px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scrollable-images {
+  overflow-y: hidden;
+  display: flex;
+  overflow-x: hidden;
+  padding: 0;
+  scroll-behavior: smooth;
+  gap: 40px; /* Increased gap between images */
+}
+
+.person-card {
+  flex: 0 0 auto;
+  width: 220px; /* Slightly increased width */
+  text-align: center;
+  margin-right: 40px; /* Increased space between images */
+  transition: transform 0.3s ease;
+}
+
+.person-card:hover {
+  transform: scale(1.05);
+}
+
+.person-image {
+  width: 200px; /* Keep this size */
+  height: 200px; /* Keep this size */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image covers the entire area */
+  transition: transform 0.3s ease;
+  margin-bottom: 10px; /* Space between image and name */
+  box-shadow: 0 0 20px white; /* White glowing shadow around the image */
+}
+
+.person-name {
+  font-size: 18px; /* Increased font size for better visibility */
+  color: white; /* Change text color to white */
+  font-weight: bold; /* Bold font weight */
+  margin-top: 8px; /* Space above the name */
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners for the text box */
+}
+
+/* Scroll buttons */
+.scroll-button {
+  cursor: pointer;
+  background-color: #0b2747; /* Button color */
+  color: white; /* Button text color */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 10px; /* Space around buttons */
+  transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: #136654; /* Darker color on hover */
+}
+.scroll-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Space above the buttons */
+}
+
+.arrow-icon {
+  cursor: pointer;
+  font-size: 24px; /* Size of the arrow icons */
+  color: white; /* Color of the arrow icons */
+  transition: color 0.3s;
+}
+
+.arrow-icon:hover {
+  color: #91d4c6; /* Change color on hover */
+}
