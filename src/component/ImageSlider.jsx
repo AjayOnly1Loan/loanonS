@@ -79,10 +79,12 @@ const ImageSlider = ({ images, duration = 5000 }) => {
           {currentImage === index && isInView && (
             <Box
               sx={{
+                fontFamily: 'cursive',
+
                 position: 'absolute',
                 bottom: { xs: '10%', sm: '15%', md: '25%' },
                 left: '20px',
-                color: '#ff8f1f',
+                color: 'white ',
                 textAlign: 'left',
                 fontSize: { xs: '1.1rem', sm: '2.2rem' },
                 padding: '10px',
@@ -90,21 +92,23 @@ const ImageSlider = ({ images, duration = 5000 }) => {
                 animation: 'zoomIn 2s ease-in-out forwards',
               }}
             >
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold"    fontFamily= 'cursive'
+              >
                 {textOverlays[index]?.text1}
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold"  fontFamily= 'cursive'>
                 {textOverlays[index]?.text2}
               </Typography>
               <Link to="/apply-now">
                 <Button
                   variant="contained"
                   sx={{
+                    fontFamily: 'cursive',
                     marginTop: '20px',
                     padding: '10px 20px',
-                    backgroundColor: '#FF6F00',
+                    backgroundColor: 'black',
                     color: 'white',
-                    borderRadius: '5px',
+                    borderRadius: '50px',
                     boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)', // Shadow for 3D effect
                     transition: 'all 0.3s ease',
                     '&:hover': {

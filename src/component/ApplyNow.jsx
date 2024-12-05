@@ -20,49 +20,32 @@ import {
   PinDrop,
   CalendarToday,
   Public,
-  LocationOn, // Importing icon for location
+  LocationOn,
 } from '@mui/icons-material';
 import Swal from 'sweetalert2';
-import ApplyNowVideo from '../assets/videos/Apply now.mp4'; // Replace with your video path
-
 
 const ApplyNow = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const [selectedState, setSelectedState] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  const [state, setState] = useState('');
+  const [city, setCity] = useState('');
   const [formValues, setFormValues] = useState({
-    first_name: '',
-    middle_name: '',
-    last_name: '',
+    fName: '',
+    lName:' ',
     gender: '',
     pan: '',
+    aadhaar: '',
     mobile: '',
+    alternateMobile: '',
     dob: '',
-    email_personal: '',
-    office_email: '',
-    pincode: '',
+    personalEmail: '',
+    officeEmail: '',
+    pinCode: '',
     salary: '',
-    loan_amount: '',
+    loanAmount: '',
   });
   const [formErrors, setFormErrors] = useState({});
   const [animationState, setAnimationState] = useState([]);
 
-  // Placeholder data for states and cities
-  const states = [
-    { label: 'Maharashtra', cities: ['Mumbai', 'Pune', 'Nagpur'] },
-    { label: 'Karnataka', cities: ['Bangalore', 'Mysore', 'Hubli'] },
-    { label: 'Gujarat', cities: ['Ahmedabad', 'Surat', 'Vadodara'] },
-    { label: 'Rajasthan', cities: ['Jaipur', 'Jodhpur', 'Udaipur'] },
-  ];
-
-  const handleStateChange = (event) => {
-    setSelectedState(event.target.value);
-    setSelectedCity(''); // Reset city when the state changes
-  };
-
-  const handleCityChange = (event) => {
-    setSelectedCity(event.target.value);
-  };
 
   const handleCheckboxChange = (event) => {
     setTermsAccepted(event.target.checked);
@@ -71,32 +54,24 @@ const ApplyNow = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    // For mobile input: allow only numbers
-    if (name === 'mobile' && !/^\d*$/.test(value)) {
-      return;
-    }
-
-    // For salary and loan amount: allow only numbers
-    if ((name === 'salary' || name === 'loan_amount') && !/^\d*$/.test(value)) {
-      return;
-    }
-
-    // For pincode: allow only numbers and ensure length is 6
-    if (name === 'pincode' && (!/^\d*$/.test(value) || value.length > 6)) {
-      return;
-    }
+    // Validation for input fields
+    if (name === 'mobile' && !/^\d*$/.test(value)) return;
+    if ((name === 'salary' || name === 'loanAmount') && !/^\d*$/.test(value)) return;
+    if (name === 'pinCode' && (!/^\d*$/.test(value) || value.length > 6)) return;
+    if (name === 'aadhaar' && (!/^\d*$/.test(value) || value.length > 12)) return;
 
     setFormValues({ ...formValues, [name]: value });
-    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' })); // Reset error on input change
+    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
   };
 
   const validateForm = () => {
     const errors = {};
     const mobileValid = /^\d{10}$/.test(formValues.mobile);
-    const panValid = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formValues.pan); // PAN validation
-    const emailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formValues.email_personal);
-    const officeEmailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formValues.office_email);
-    const pincodeValid = /^\d{6}$/.test(formValues.pincode);
+    const panValid = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formValues.pan);
+    const aadhaarValid = /^\d{12}$/.test(formValues.aadhaar);
+    const emailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formValues.personalEmail);
+    const officeEmailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formValues.officeEmail);
+    const pinCodeValid = /^\d{6}$/.test(formValues.pinCode);
 
     Object.keys(formValues).forEach((field) => {
       if (!formValues[field]) {
@@ -104,338 +79,358 @@ const ApplyNow = () => {
       }
     });
 
-    if (!mobileValid) {
-      errors.mobile = 'Mobile number must be a 10-digit number';
-    }
-    if (!panValid) {
-      errors.pan = 'Invalid PAN format (e.g., ABCDE1234F)';
-    }
-    if (!emailValid) {
-      errors.email_personal = 'Invalid email format';
-    }
-    if (!officeEmailValid) {
-      errors.office_email = 'Invalid office email format';
-    }
-    if (!pincodeValid) {
-      errors.pincode = 'Pincode must be 6 digits';
-    }
-    if (!termsAccepted) {
-      errors.termsAccepted = 'You must accept the Terms & Conditions';
-    }
-    if (!selectedState) {
-      errors.state = 'Please select a state';
-    }
-    if (!selectedCity) {
-      errors.city = 'Please select a city';
-    }
+    if (!mobileValid) errors.mobile = 'Mobile number must be a 10-digit number';
+    if (!aadhaarValid) errors.aadhaar = 'Aadhaar number must be a 12-digit number';
+    if (!panValid) errors.pan = 'Invalid PAN format (e.g., ABCDE1234F)';
+    if (!emailValid) errors.personalEmail = 'Invalid email format';
+    if (!officeEmailValid) errors.officeEmail = 'Invalid office email format';
+    if (!pinCodeValid) errors.pinCode = 'pinCode must be 6 digits';
+    if (!termsAccepted) errors.termsAccepted = 'You must accept the Terms & Conditions';
+    if (!state) errors.state = 'Please select a state';
+    if (!city) errors.city = 'Please select a city';
 
     return errors;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const errors = validateForm();
+  
 
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
+  const handlePincodeChange = async (e) => {
+    const value = e.target.value;
+    setFormValues({ ...formValues, pinCode: value });
+    console.log(value);
+    
+    // Fetch city and state based on pincode
+    if (value.length === 6) {
+      try {
+        const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
+        const data = await response.json();
+
+        if (data[0].Status === "Success") {
+          const { Block, State } = data[0].PostOffice[0];
+          setCity(Block);
+          setState(State);
+          console.log(city, state);
+          
+        } else {
+          // Handle invalid pin code case
+          setCity('');
+          setState('');
+          Swal.fire({
+            icon: 'error',
+            title: 'Invalid Pincode',
+            text: 'Please enter a valid pincode.',
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching pincode data:', error);
+      }
+    } else {
+      setCity('');
+      setState('');
+    }
+  };
+
+
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const errors = validateForm(); // Validate form and get errors
+    
+    console.log("the values of onject ",Object.keys(errors).length)
+    // Check for validation errors
+    if (Object.keys(errors).length >=2) {
+      setFormErrors(errors); // Set the errors in state
+      return; // Prevent submission
+    }
+  
+    // Proceed with form submission if there are no errors
+    try {
+      const response = await fetch('https://api.fintechbasket.com/api/leads/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formValues,
+          state: state,
+          city: city,
+          termsAccepted,
+          source: 'website',
+        }),
+      });
+  
+      if (!response.ok) throw new Error('Network response was not ok');
+  
+      const result = await response.json();
+  
+      Swal.fire({
+        title: 'Success!',
+        text: 'Our executive will call you or revert you back in 24 hours.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      });
+  
+      // Reset form after successful submission
+      setFormValues({
+        fName: '',
+        lName: '',
+        gender: '',
+        pan: '',
+        aadhaar: '',
+        mobile: '',
+        dob: '',
+        personalEmail: '',
+        officeEmail: '',
+        pinCode: '',
+        salary: '',
+        loanAmount: '',
+      });
+      setTermsAccepted(false);
+      setState('');
+      setCity('');
+      setFormErrors({}); // Reset form errors
+    } catch (error) {
       Swal.fire({
         title: 'Error!',
-        text: 'Please fill in all required fields correctly.',
+        text: 'Something went wrong. Please try again later.',
         icon: 'error',
         confirmButtonText: 'OK',
       });
-      return;
     }
-
-    Swal.fire({
-      title: 'Success!',
-      text: 'Our executive will call you or revert you back in 24 hours.',
-      icon: 'success',
-      confirmButtonText: 'OK',
-    });
   };
+  
+  
 
-  useEffect(() => {
-    // Initialize animation state for each field
-    const initialAnimationState = new Array(12 + states.length).fill(false);
-    setAnimationState(initialAnimationState);
 
-    // Animate fields one by one
-    initialAnimationState.forEach((_, index) => {
-      setTimeout(() => {
-        setAnimationState((prev) => {
-          const newAnimationState = [...prev];
-          newAnimationState[index] = true; // Mark field as animated
-          return newAnimationState;
-        });
-      }, index * 300); // Adjust delay as needed
-    });
-  }, []);
 
   return (
     <div>
-      <Box sx={{ position: 'relative', mb: 4 }}>
+      <Box sx={{ position: 'relative', mb: 4 ,fontFamily:'cursive'}}>
         <video
-          src={ApplyNowVideo}
+          src={"https://publicramlella.s3.ap-south-1.amazonaws.com/public_assets/SpeedoLoanPublicAssests/Apply+now-LflBC-eW.mp4"}
           autoPlay
           loop
           muted
           style={{
             width: '100%',
             height: '40%',
-            objectFit: 'cover', // Ensures the video covers the container
+            objectFit: 'cover',
           }}
         />
-        
       </Box>
-
-      <Container maxWidth="xl" sx={{ mt: 4 }}>
+          <form style={{fontFamily:'cursive'}}>
+          <Container maxWidth="xl" sx={{ mt: 4 ,fontFamily:'cursive'}}>
         <Box
           component="form"
           id="loanForm"
           onSubmit={handleSubmit}
           sx={{
+            fontFamily:'cursive',
             display: 'flex',
             flexDirection: 'column',
             gap: 3,
-            backgroundSize: 'cover', // Ensures the image covers the entire form
-            backgroundPosition: 'center',
-            backgroundBlendMode: 'overlay', // Blends the background image with the white overlay
             padding: 4,
-            backgroundColor: 'rgba(240, 240, 240, 0.9)', // A very light gray
-            borderRadius: 2,
+            backgroundColor: 'rgba(240, 240, 240, 0.9)',
+            borderRadius: 20,
+            border: '2px solid gray',
             boxShadow: 3,
             width: '100%',
           }}
         >
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom sx={{fontFamily:'cursive'}}>
             Personal Information
           </Typography>
-          <Grid container spacing={3}>
-            {/* 3 Column Layout */}
-            {[
-              { label: 'First Name', name: 'first_name', icon: <Person /> },
-              { label: 'Middle Name', name: 'middle_name', icon: <Person /> },
-              { label: 'Last Name', name: 'last_name', icon: <Person /> },
-              { label: 'Gender', name: 'gender', icon: <Person />, type: 'select', options: ['Male', 'Female', 'Others'] },
-              { label: 'PAN', name: 'pan', icon: <Public /> }, // PAN Icon
-              { label: 'Mobile', name: 'mobile', icon: <Phone /> },
-              { label: 'DOB', name: 'dob', icon: <CalendarToday />, type: 'date' },
-              { label: 'Email', name: 'email_personal', icon: <Email /> },
-              { label: 'Office Email', name: 'office_email', icon: <Email /> },
-              { label: 'Pincode', name: 'pincode', icon: <PinDrop /> },
-              { label: 'Salary', name: 'salary', icon: <CurrencyRupee />, type: 'number' },
-              { label: 'Loan Amount', name: 'loan_amount', icon: <CurrencyRupee />, type: 'number' },
-            ].map((field, index) => (
-              <Grid item xs={12} sm={4} key={index}>
-                {field.type === 'select' ? (
-                  <TextField
-                    select
-                    fullWidth
-                    label={field.label}
-                    name={field.name}
-                    value={formValues[field.name]}
-                    onChange={handleInputChange}
-                    required
-                    error={!!formErrors[field.name]}
-                    helperText={formErrors[field.name]}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Box
-                            sx={{
-                              bgcolor: '#cfe8fc',
-                              borderRadius: '50%',
-                              padding: '6px',
-                              marginRight: '8px',
-                              
-                            }}
-                          >
-                            {field.icon}
-                          </Box>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{
-                      opacity: animationState[index] ? 1 : 0,
-                      transform: animationState[index] ? 'translateY(0)' : 'translateY(20px)',
-                      transition: 'opacity 0.5s, transform 0.5s',
-                    }}
-                  >
-                    {field.options.map((option) => (
+        <Grid container spacing={3} sx={{fontFamily:'cursive'}}>
+                              {[
+                    { label: 'First Name', name: 'fName', icon: <Person /> },
+                    { label: 'Last Name', name: 'lName', icon: <Person /> },
+
+                    { label: 'Gender', name: 'gender', icon: <Person />, type: 'select', options: ['M', 'F', 'Others'] },
+                    { label: 'PAN', name: 'pan', icon: <Public /> },
+                    { label: 'Aadhaar', name: 'aadhaar', icon: <Public /> },
+                    { label: 'Mobile', name: 'mobile', icon: <Phone /> },
+                    { label: 'DOB', name: 'dob', icon: <CalendarToday />, type: 'date' },
+                    { label: 'Personal Email', name: 'personalEmail', icon: <Email /> },
+                    { label: 'Office Email', name: 'officeEmail', icon: <Email /> },
+                    { label: 'Monthly Salary', name: 'salary', icon: <CurrencyRupee /> },
+                    { label: 'Loan Amount Required', name: 'loanAmount', icon: <CurrencyRupee /> },
+                  ]
+                ?.map((field, index) => (
+              <Grid
+                key={index}
+                item
+                xs={12}
+                md={6}
+                
+              >
+                <TextField
+                  fullWidth
+                  required
+                  name={field.name}
+                  label={field.label}
+                  value={formValues[field.name]}
+                  onChange={handleInputChange}
+                  type={field.type || 'text'}
+                  select={field.type === 'select'}
+                  error={!!formErrors[field.name]}
+                  helperText={formErrors[field.name] || ''}
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">{field.icon}</InputAdornment>,
+                  }}
+                >
+                  {field.options &&
+                    field.options.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
-                      </MenuItem>
+ {option === "M" ? "Male" : option === "F" ? "Female" : "Others"}
+ </MenuItem>
                     ))}
-                  </TextField>
-                ) : (
-                  <TextField
-                    fullWidth
-                    label={field.label}
-                    name={field.name}
-                    type={field.type || 'text'}
-                    value={formValues[field.name]}
-                    onChange={handleInputChange}
-                    required
-                    error={!!formErrors[field.name]}
-                    helperText={formErrors[field.name]}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Box
-                            sx={{
-                              bgcolor: '#cfe8fc',
-                              borderRadius: '50%',
-                              padding: '6px',
-                              marginRight: '8px',
-                            }}
-                          >
-                            {field.icon}
-                          </Box>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{
-                      opacity: animationState[index] ? 1 : 0,
-                      transform: animationState[index] ? 'translateY(0)' : 'translateY(20px)',
-                      transition: 'opacity 0.5s, transform 0.5s',
-                    }}
-                  />
-                )}
+                </TextField>
               </Grid>
             ))}
 
-            {/* State Dropdown */}
-            <Grid item xs={12} sm={6}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+           
+          }}
+        >
+          <TextField
+            fullWidth
+            required
+            name='pinCode'
+            label="Pincode"
+            value={formValues.pinCode}
+            onChange={handlePincodeChange}
+            error={!!formErrors.pinCode}
+            helperText={formErrors.pinCode || ''}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <PinDrop sx={{ color: '#1976d2' }} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              backgroundColor: '#f0f4ff',
+              borderRadius: '4px',
+            }}
+          />
+        </Grid>
+        <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+              
+              }}
+            >
               <TextField
-                select
                 fullWidth
-                label="State"
-                value={selectedState}
-                onChange={handleStateChange}
                 required
-                error={!!formErrors.state}
-                helperText={formErrors.state}
-                sx={{
-                  opacity: animationState[12] ? 1 : 0,
-                  transform: animationState[12] ? 'translateY(0)' : 'translateY(20px)',
-                  transition: 'opacity 0.5s, transform 0.5s',
-                }}
+                name='city'
+                label="City"
+                value={city}
+                error={!!formErrors.city}
+                helperText={formErrors.city || ''}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <Box
-                        sx={{
-                          bgcolor: '#cfe8fc',
-                          borderRadius: '50%',
-                          padding: '6px',
-                          marginRight: '8px',
-                        }}
-                      >
-                        <LocationOn />
-                      </Box>
+                      <LocationOn />
                     </InputAdornment>
                   ),
                 }}
               >
-                {states.map((state) => (
-                  <MenuItem key={state.label} value={state.label}>
-                    {state.label}
-                  </MenuItem>
-                ))}
+            
+                  
               </TextField>
             </Grid>
 
-            {/* City Dropdown */}
-            <Grid item xs={12} sm={6}>
-              <TextField
-                select
-                fullWidth
-                label="City"
-                value={selectedCity}
-                onChange={handleCityChange}
-                required
-                error={!!formErrors.city}
-                helperText={formErrors.city}
-                sx={{
-                  opacity: animationState[13] ? 1 : 0,
-                  transform: animationState[13] ? 'translateY(0)' : 'translateY(20px)',
-                  transition: 'opacity 0.5s, transform 0.5s',
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Box
-                        sx={{
-                          bgcolor: '#cfe8fc',
-                          borderRadius: '50%',
-                          padding: '6px',
-                          marginRight: '8px',
-                        }}
-                      >
-                        <LocationOn />
-                      </Box>
-                    </InputAdornment>
-                  ),
-                }}
-              >
-                {selectedState &&
-                  states
-                    .find((state) => state.label === selectedState)
-                    .cities.map((city) => (
-                      <MenuItem key={city} value={city}>
-                        {city}
-                      </MenuItem>
-                    ))}
-              </TextField>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{
+            
+            }}
+          >
+            <TextField
+              fullWidth
+              required
+              name='state'
+              label="State"
+              value={state}
+              error={!!formErrors.state}
+              helperText={formErrors.state || ''}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LocationOn sx={{ color: '#1976d2' }} />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                backgroundColor: '#f0f4ff',
+                borderRadius: '4px',
+              }}
+            >
+              
+            </TextField>
+          </Grid>
+           
+
+
+            <Grid item xs={12} sx={{fontFamily:'cursive'}}>
+              <FormControlLabel
+                control={<Checkbox checked={termsAccepted} onChange={handleCheckboxChange} />}
+                label={
+                  <Typography variant="body2" sx={{fontFamily:'cursive'}}>
+                    I accept the{' '}
+                    <Link href="terms-condition" target="_blank" rel="noopener" sx={{fontFamily:'cursive'}}>
+                      Terms & Conditions
+                    </Link >{' '}
+                    and{' '}
+                    <Link href="privacy-policy" target="_blank" rel="noopener" sx={{fontFamily:'cursive'}}>
+                      Privacy Policy
+                    </Link>
+                  </Typography>
+                }
+              />
+              {formErrors.termsAccepted && (
+                <Typography color="error" variant="body2">
+                  {formErrors.termsAccepted}
+                </Typography>
+              )}
             </Grid>
           </Grid>
 
-          {/* Terms and Conditions Checkbox */}
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={termsAccepted}
-                onChange={handleCheckboxChange}
-                color="primary"
-              />
-            }
-            label={
-              <Typography variant="body2">
-                I accept the{' '}
-                <Link href="/terms-condition" color="primary">
-                  Terms & Conditions
-                </Link>
-                &  <Link href="/privacy-policy" color="primary">
-                  Privacy Policy
-                </Link>
-              </Typography>
-            }
-          />
-          {formErrors.termsAccepted && (
-            <Typography color="error">{formErrors.termsAccepted}</Typography>
-          )}
-
           <Button
-            variant="contained"
-            type="submit"
-            color="primary"
-            sx={{
-              '&:hover': {
-                backgroundColor: 'vlue', // Vibrant hover color
-                boxShadow: '0 4px 20px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.7)', // Darker golden shadow effect
-              },
-            }}
-          >
-            Submit
-          </Button>
+                  variant="contained"
+                  type="submit"
+                  onClick={handleSubmit}
 
+                  sx={{
+                    fontFamily:'cursive',
+                    mt: 2,
+                    borderRadius:'80px',
+                    bgcolor: 'black', // Set the background color to orange
+                    color: '#fff',
+                    '&:hover': {
+                      bgcolor: 'darkgray', // Set the hover background color to dark gray
+                    },
+                  }}
+                > 
+                  Submit
+                </Button>
 
         </Box>
-        </Container>
-       
+      </Container>
+          </form>
+      
     </div>
-    
   );
 };
 

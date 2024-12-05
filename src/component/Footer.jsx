@@ -5,7 +5,7 @@ import logo from '../assets/image/white Loan On Salary Logo.svg'; // Adjust the 
 
 const Footer = () => {
   return (
-    <Box sx={{bgcolor:'white',padding:4}}>
+    <Box sx={{bgcolor:'white',padding:4,fontFamily: 'cursive'}}>
     <footer style={{ 
     background: ' #30302d', /* Example gradient, adjust as needed */
       padding: '20px 10px', // Reduced padding for a smaller footer
@@ -22,8 +22,8 @@ const Footer = () => {
           <Grid item xs={12} md={3}>
             <div>
               <img src={logo} alt="Logo" style={{ width: '100px', marginBottom: '8px' }} /> {/* Smaller logo */}
-              <Typography variant="body2" style={{ fontSize: '12px', fontWeight: '300', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>
-                Unlock your business's true potential with flexible financing solutions tailored to your growth.
+              <Typography variant="body2" style={{ fontSize: '12px', fontWeight: '300', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)',fontFamily:'cursive' }}>
+              Unlock your financial freedom with flexible personal loan solutions tailored to your needs.
               </Typography>
               <Box mt={1} display="flex" gap={1}>
                 <Link href="#" sx={iconStyle}><Facebook /></Link>
@@ -84,8 +84,8 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <Box mt={2} py={1} style={{ backgroundColor: '#4a4945', textAlign: 'center', borderRadius: '0 0 10px 10px', boxShadow: '0 -3px 10px rgba(0, 0, 0, 0.3)' }}>
-        <Typography variant="body2" style={{ color: '#ccc', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>
-          Copyright &copy; 2024 SpeedLoan. All Rights Reserved.
+        <Typography variant="body2" style={{ color: '#ccc', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' ,fontFamily:'cursive'}}>
+          Copyright &copy; 2024 LoanOnSalary. All Rights Reserved.
         </Typography>
       </Box>
       
@@ -95,8 +95,8 @@ const Footer = () => {
 };
 
 const iconStyle = {
-  backgroundColor: '#fff',
-  color: '#216daf',
+  backgroundColor: 'white',  // Set background color to match your site's theme
+  color: 'black',               // Set icon color to white
   borderRadius: '50%',
   padding: '8px',
   display: 'flex',
@@ -107,11 +107,12 @@ const iconStyle = {
   transition: 'transform 0.2s, background-color 0.2s',
   boxShadow: '0 5px 10px rgba(0, 0, 0, 0.5)', // Reduced shadow
   '&:hover': {
-    backgroundColor: '#e0e0e0',
-    color: '#111',
+    backgroundColor: '#e0e0e0',  // Hover effect background
+    color: '#111',  // Hover effect icon color
     transform: 'translateY(-3px)', // Less lift on hover
   },
 };
+
 
 const linkStyle = {
   padding: '5px 0', // Reduced padding

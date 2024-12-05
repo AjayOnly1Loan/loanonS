@@ -5,17 +5,13 @@ import { Person, Home, AttachMoney, CheckCircle } from '@mui/icons-material'; //
 import RupeeIcon from '@mui/icons-material/AttachMoney'; // Import Rupee icon
 import DocumentIcon from '../assets/image/documents.png'; // Image for Documents Required heading
 import EligibilityIcon from '../assets/image/eligibility.png'; // Image for Eligibility heading
-import ThinImage from '../assets/image/Add a little bit of body text (1).gif'; // Import your thin image here
 
 const DocumentEligible = () => {
   const { ref, inView } = useInView({ triggerOnce: false });
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Thin Image at the top */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-        <img src={ThinImage} alt="Thin Image" style={{ width: '100%', height: 'auto', maxHeight: '80px' }} />
-      </Box>
+     
 
       <Box
         sx={{
