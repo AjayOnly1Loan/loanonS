@@ -139,19 +139,19 @@ const SortFAQ = () => {
 // FAQ items data
 const faqItems = [
     {
-        question: 'What is LoanOnSalarys?',
-        answer: 'LoanOnSalarys is a digital platform that provides fast and easy personal loans to salaried professionals in India.',
+        question: 'What is LoanOnSalary?',
+        answer: 'LoanOnSalary is a digital platform that provides fast and easy personal loans to salaried professionals in India.',
     },
     {
-        question: 'Who can apply for a personal loan on LoanOnSalarys?',
-        answer: 'Any salaried individual aged 21 to 60, employed full-time, can apply for a personal loan on LoanOnSalarys.com.',
+        question: 'Who can apply for a personal loan on LoanOnSalary?',
+        answer: 'Any salaried individual aged 21 to 60, employed full-time, can apply for a personal loan on LoanOnSalary.',
     },
     {
-        question: 'How much loan amount can I get from LoanOnSalarys?',
+        question: 'How much loan amount can I get from LoanOnSalary?',
         answer: 'We offer personal loans ranging from ₹5,000 to ₹1,00,000, depending on your salary and credit history.',
     },
     {
-        question: 'How do I apply for a loan on LoanOnSalarys?',
+        question: 'How do I apply for a loan on LoanOnSalary?',
         answer: 'Applying for a loan on LoanOnSalarys.com is easy. Fill out the form, submit the required documents, and receive instant approval.',
     },
     {

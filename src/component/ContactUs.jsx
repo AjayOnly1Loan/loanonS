@@ -52,58 +52,96 @@ const ContactUs = () => {
           mt: '20px', // Margin-top
         }}
       >
-        <Typography variant="h6" sx={{ color: 'blue' }}>
+        <Typography variant="h2" sx={{ color: 'black', fontFamily:'cursive' }}>
           Get in touch with us
         </Typography>
-        <Typography variant="h2" sx={{ color: 'darkblue', fontWeight: 'bold', '&:hover': { color: 'blue' } }}>
-          Ask for your query
-        </Typography>
 
-        <Grid container spacing={3} justifyContent="center" mt={3}>
-          <Grid item xs={12} sm={4}>
-            <Box className="hover-box" sx={{ padding: '30px', transition: '0.3s', borderRadius: '10px', textAlign: 'center' }}>
-              <i className="fas fa-envelope"></i>
-              <Typography>Email: info@loanonsalary.com</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Box className="hover-box" sx={{ padding: '30px', transition: '0.3s', borderRadius: '10px', textAlign: 'center' }}>
-              <i className="fas fa-phone-alt"></i>
-              <Typography>Phone: +91 9220535528</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Box className="hover-box" sx={{ padding: '30px', transition: '0.3s', borderRadius: '10px', textAlign: 'center' }}>
-              <i className="fas fa-map-marker-alt"></i>
-              <Typography>Address:  1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh -
-              201301.</Typography>
-            </Box>
-          </Grid>
-        </Grid>
+
+        <Grid container spacing={1} justifyContent="center" mt={3}> {/* Reduced spacing */}
+  <Grid item xs={12} sm={3.5}>
+    <Box
+      className="hover-box"
+      sx={{
+        
+        padding: '20px',  // Reduced padding inside the box
+        transition: '0.3s',
+        borderRadius: '10px',
+        textAlign: 'center',
+        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+      }}
+    >
+      <i className="fas fa-envelope"></i>
+      <Typography sx={{ fontFamily: 'cursive' }}>Email: info@loanonsalary.com</Typography>
+    </Box>
+  </Grid>
+  <Grid item xs={12} sm={3.5}>
+    <Box
+      className="hover-box"
+      sx={{
+        padding: '20px',  // Reduced padding inside the box
+        transition: '0.3s',
+        borderRadius: '10px',
+        textAlign: 'center',
+        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+      }}
+    >
+      <i className="fas fa-phone-alt"></i>
+      <Typography sx={{ fontFamily: 'cursive' }}>Phone: +91 9220535528</Typography>
+    </Box>
+  </Grid>
+  <Grid item xs={12} sm={3.5}>
+    <Box
+      className="hover-box"
+      sx={{
+        padding: '20px',  // Reduced padding inside the box
+        transition: '0.3s',
+        borderRadius: '10px',
+        textAlign: 'center',
+        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+      }}
+    >
+      <i className="fas fa-map-marker-alt"></i>
+      <Typography sx={{ fontFamily: 'cursive' }}>Address:  1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301.</Typography>
+    </Box>
+  </Grid>
+</Grid>
+
+
       </Box>
 
       {/* Contact Us Form */}
-      <Grid container spacing={2} mt={5}>
-        {/* Left Video */}
-        <Grid item xs={12} sm={6}>
-          <Box
-            component="video"
-            src={leftVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
+      
+    
+            {/* Contact Us Form */}
+            <Grid container spacing={2} mt={5} mb={5}>
+           <Grid
+            item
+            xs={12}
+            sm={6}
             sx={{
-              width: '80%', // Adjusted width
-              height: 'auto', // Maintain aspect ratio
-              objectFit: 'cover',
-              borderRadius: '8px',
-              mt: 10, // Increased margin-top
-              ml: 10, // Adjust margin-left
+              display: 'flex',
+              flexDirection: 'column', // Stack the video and map vertically
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
-          />
-        </Grid>
+          >
+            
+            
+            <Box
+              component="iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3435.012190060276!2d77.36625474937759!3d28.570626083222425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a57f3f6f1f%3A0xa1c0ad1211f34090!2sWorld%20Trade%20Tower%2C%20Sector%2016%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sus!4v1614693744843"
+              sx={{
+                width: { xs: '100%', sm: '80%', md: '90%' },
+                height: '450px', // Set an appropriate height for the map
+                border: 0,
+                borderRadius: '8px',
+              }}
+              allowFullScreen
+              loading="lazy"
+            />
+          </Grid>
 
+ 
         {/* Right Contact Form */}
         <Grid item xs={12} sm={6}>
           <Box 
@@ -118,54 +156,25 @@ const ContactUs = () => {
               mt: 2, 
             }}
           >
-            <Typography variant="h4" gutterBottom textAlign="center">
-              Get in Touch
+            <Typography variant="h4" gutterBottom textAlign="center" sx={{fontFamily:"cursive"}}>
+              Get in Touch 
             </Typography>
             
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField 
-                  label="Full Name" 
-                  variant="outlined" 
-                  fullWidth 
-                  required 
-                />
+              <Grid item xs={12} sm={6}  sx={{fontFamily:"cursive"}}>
+                <TextField label="Full Name" variant="outlined" fullWidth required />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField 
-                  label="Email" 
-                  variant="outlined" 
-                  fullWidth 
-                  required 
-                  type="email" 
-                />
+              <Grid item xs={12} sm={6}  sx={{fontFamily:"cursive"}}>
+                <TextField label="Email" variant="outlined" fullWidth required type="email" />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField 
-                  label="Phone Number" 
-                  variant="outlined" 
-                  fullWidth 
-                  required 
-                  type="tel" 
-                />
+              <Grid item xs={12} sm={6}  sx={{fontFamily:"cursive"}}>
+                <TextField label="Phone Number" variant="outlined" fullWidth required type="tel" />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField 
-                  label="Subject" 
-                  variant="outlined" 
-                  fullWidth 
-                  required 
-                />
+              <Grid item xs={12} sm={6}  sx={{fontFamily:"cursive"}}>
+                <TextField label="Subject" variant="outlined" fullWidth required />
               </Grid>
-              <Grid item xs={12}>
-                <TextField 
-                  label="Message" 
-                  variant="outlined" 
-                  fullWidth 
-                  multiline 
-                  rows={6} // Larger message box
-                  required 
-                />
+              <Grid item xs={12}  sx={{fontFamily:"cursive"}}>
+                <TextField label="Message" variant="outlined" fullWidth multiline rows={6} required />
               </Grid>
               <Grid item xs={12}>
                 <Button 
@@ -173,9 +182,10 @@ const ContactUs = () => {
                   type="submit" 
                   fullWidth
                   sx={{ 
+                    fontFamily:'cursive',
                     padding: '10px', 
-                    backgroundColor: '#136654', 
-                    '&:hover': { backgroundColor: '#0b2747' }, 
+                    backgroundColor: '#0b2747', 
+                    '&:hover': { backgroundColor: 'orange' }, 
                     borderRadius: '8px',
                   }} 
                 >

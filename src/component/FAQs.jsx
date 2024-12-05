@@ -84,8 +84,8 @@ const FAQs = () => {
                                 question: '3. Who is eligible to apply for a loan?',  
                                 answer: `To be eligible, you must:  
                                 ● Be an Indian citizen or its resident.  
-                                ● Be between 21 and 58 years of age.  
-                                ● Be a salaried employee with a minimum monthly income of ₹[Insert Amount].  
+                                ● Be between 21 and 60 years of age.  
+                                ● Be a salaried employee with a minimum monthly income of ₹35000.  
                                 ● Have a valid PAN Card and Aadhaar Card.  
                                 ● Hold an active bank account for loan disbursement and repayment.`  
                             },  
@@ -125,7 +125,7 @@ const FAQs = () => {
                             {  
                                 id: 'faq9',  
                                 question: '9. Are there any processing fees?',  
-                                answer: `Yes, a processing fee is charged as a percentage of the loan amount. This fee will be deducted from the loan disbursement.`  
+                                answer: `Yes, Processing fee is charged as the loan agreement . This fee will be deducted from the loan disbursement.`  
                             },  
                             {  
                                 id: 'faq10',  
@@ -163,7 +163,7 @@ const FAQs = () => {
                                 question: '15. How can I contact customer support?',  
                                 answer: `For any queries or assistance, you can contact us via:  
                                 ● Email: info@loanonsalary.com  
-                                ● Phone: 1234567890  
+                                ● Phone: +91 9220535528  
                                 ● Office Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh -201301`  
                             }  
 

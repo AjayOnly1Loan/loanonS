@@ -153,7 +153,7 @@ const AboutUs = () => {
     sx={{ color: 'black', mb: 2 }}
     style={{ fontFamily: 'cursive' }} // Adding cursive to the text
   >
-    At Speedloans.com, we have simplified the loan process to make it as easy and straightforward as possible. Here’s how it works:
+    At LoanOnSalary, we have simplified the loan process to make it as easy and straightforward as possible. Here’s how it works:
   </Typography>
 
   {/* Process Steps */}

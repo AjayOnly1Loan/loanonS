@@ -188,7 +188,7 @@ const Header = () => {
               <ContactMailIcon sx={{ mr: 1 }} /> Contact Us
             </Link>
             <Link
-              to="/repay"
+              to="/repay-now"
               onClick={scrollToTop}
               style={{
                 color: '#0b2747',
@@ -200,7 +200,7 @@ const Header = () => {
                 fontFamily: 'Great Victorian, cursive', // Apply cursive font
               }}
             >
-              <ApplyNowIcon sx={{ mr: 1 }} /> Repay
+              <ApplyNowIcon sx={{ mr: 1 }} /> Repay Now
             </Link>
             <Link
               to="/apply-now"

@@ -42,8 +42,8 @@ const DocumentEligible = () => {
               items: [
                 { text: 'Indian Citizen', icon: <CheckCircle /> },
                 { text: '21 years of age and above', icon: <CheckCircle /> },
-                { text: 'Salary of minimum ₹20,000 every month', icon: <CheckCircle /> },
-                { text: 'Regular salary credit to a bank account', icon: <CheckCircle /> },
+                { text: 'Salary of minimum ₹20,000-35000 every month', icon: <CheckCircle /> },
+                { text: ' Salary must be credited regularly to a Bank Account', icon: <CheckCircle /> },
               ],
             },
           ].map(({ title, bgColor, icon, items }, index) => (

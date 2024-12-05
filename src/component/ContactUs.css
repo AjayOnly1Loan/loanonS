@@ -9,6 +9,9 @@
 }
 
 .hover-box {
+  background-color: black;
+  color: #e0f7fa;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +28,7 @@
 
 /* Zoom effect and shadow on hover */
 .hover-box:hover {
+  color: black;
   transform: scale(1.05); /* Slight zoom effect */
   background-color: #e0f7fa; /* Change background color on hover */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */

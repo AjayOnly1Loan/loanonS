@@ -8,9 +8,9 @@ const PrivacyPolicy = () => {
         {
             title: "1. Information We Collect",
             content: [
-                "When you interact with Speedloans.com, we may collect the following types of information:",
+                "When you interact with LoanOnSalary, we may collect the following types of information:",
                 "• Personal Identification Information: Name, email address, phone number, physical address, date of birth, PAN, Aadhar details, etc.",
-                "• Financial Information: Bank account details, income statements, GST Number, credit history when applying for a loan, statement of bank account, etc.",
+                "• Financial Information: Bank account details, income statements,  credit history when applying for a loan, statement of bank account, etc.",
             ]
         },
         {
@@ -29,14 +29,14 @@ const PrivacyPolicy = () => {
             content: [
                 "We do not sell or rent your personal information to third parties. However, we may share your data under the following circumstances:",
                 "• With trusted third-party service providers who help us in delivering our services (e.g., payment processors, verification agencies).",
-                "• To comply with legal obligations, regulatory requests, or to protect the rights and safety of Speedloans.com and its users.",
-                "• With Naman Finlease Private Limited, our parent NBFC, for the purpose of processing loan applications and facilitating transactions.",
+                "• To comply with legal obligations, regulatory requests, or to protect the rights and safety of LoanOnSalary and its users.",
+                "• With Datta finance and trading  Private Limited, our parent NBFC, for the purpose of processing loan applications and facilitating transactions.",
             ]
         },
         {
             title: "4. Data Security",
             content: [
-                "Speedloans.com takes appropriate measures to protect your personal and financial data. We use industry-standard encryption methods and secure servers to prevent unauthorized access, data breaches, or misuse of information.",
+                "LoanOnSalary takes appropriate measures to protect your personal and financial data. We use industry-standard encryption methods and secure servers to prevent unauthorized access, data breaches, or misuse of information.",
             ]
         },
         {
@@ -58,7 +58,7 @@ const PrivacyPolicy = () => {
         {
             title: "7. Third-Party Links",
             content: [
-                "Speedloans.com may contain links to third-party websites. We are not responsible for the privacy practices of these external sites and encourage you to review their respective privacy policies.",
+                "LoanOnSalary may contain links to third-party websites. We are not responsible for the privacy practices of these external sites and encourage you to review their respective privacy policies.",
             ]
         },
         {
@@ -71,9 +71,9 @@ const PrivacyPolicy = () => {
             title: "9. Contact Us",
             content: [
                 "If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:",
-                "Email: privacy@speedloans.com",
-                "Phone: [Insert Contact Phone Number]",
-                "Address: [Insert Physical Address]",
+                "Email: info@loanonsalary.com",
+                "Phone: 9220535528",
+                "Address: Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301"
             ]
         },
     ];

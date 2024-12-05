@@ -49,7 +49,7 @@ const LoanCalculate = () => {
             fontFamily: '"Dancing Script", cursive',  // Apply here too
         }}
     >
-        When Salary Loans Shine
+        When LoanOnSalary Shines
     </Typography>
         <Grid container spacing={4} ref={ref}>
             <Grid item lg={6}>
