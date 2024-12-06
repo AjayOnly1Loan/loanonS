@@ -349,8 +349,9 @@
     flex-direction: column; /* Stack children vertically */
     text-align: left; /* Ensure all text is left-aligned */
     margin: 30px; /* Adjust as needed */
-    height: 50vh; /* Full height to ensure vertical centering */
+    height: 60vh; /* Full height to ensure vertical centering */
   }
+ 
   
   .rounded-circle {
     border-radius: 70%; /* Make sure the image is rounded */

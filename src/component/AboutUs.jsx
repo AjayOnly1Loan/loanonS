@@ -17,16 +17,9 @@ import familyImage from '../assets/image/Downloader-La-270835.jpg'; // Import yo
 const AboutUs = () => {
   return (
     <>
-<div className="text-center w-100 position-relative"> {/* Full width container with position relative */}
-    <img
-        src={aboutUsImage} // Use the imported image
-        alt="Your Description"
-        className="img-fluid rounded shadow" // Responsive image
-        style={{ height: 'auto', maxWidth: '100%', transition: 'transform 0.3s ease' }} // Keep aspect ratio, allow full width
-    />
-   
-    
-</div>
+     <Box className="banner-inner" sx={{ padding: '25px'  }}>
+  <img src={aboutUsImage} style={{ width: '100%', height: '100%', maxHeight: '500px', borderRadius:'50px'}} alt="Repay Loan" />
+</Box>
 
      {/* About Us Section */}
 <section className="about-one">
@@ -119,25 +112,43 @@ const AboutUs = () => {
 </section>
 
 
-<section className="join-speedloans" style={{ fontFamily: 'cursive' }}>
-  <div className="container text-center" style={{ fontFamily: 'cursive' }}>
+<section className="join-speedloans" style={{ fontFamily: 'cursive', paddingBottom:'40px' }}>
+  <div className="container text-center" style={{ fontFamily: 'cursive', maxWidth: '100%' }}>
     <img
       src={familyImage}
       alt="Join Speedloans Family"
       className="rounded-circle"
-      style={{ width: '100px', height: '100px' }}
+      style={{
+        width: '100px',
+        height: '100px',
+        marginBottom: '20px', // Ensure space between image and text
+      }}
     />
     <Typography variant="h4" gutterBottom style={{ fontFamily: 'cursive' }}>
       Join the LoanOnSalary Family Today
     </Typography>
     <Typography variant="body1" paragraph style={{ fontFamily: 'cursive' }}>
-      We invite you to experience the ease and convenience of personal lending with LoanOnSalary Whether you need a quick loan to cover unexpected expenses or a longer-term solution for significant life events, we are here to help you every step of the way.
+      We invite you to experience the ease and convenience of personal lending with LoanOnSalary. Whether you need a quick loan to cover unexpected expenses or a longer-term solution for significant life events, we are here to help you every step of the way.
     </Typography>
     <Typography variant="body1" paragraph style={{ fontFamily: 'cursive' }}>
       Apply today and see how LoanOnSalary can empower you to take control of your financial future.
     </Typography>
   </div>
 </section>
+
+<style jsx>{`
+  @media (max-width: 768px) {
+    .join-speedloans {
+      padding-bottom: 60px; /* Increase padding for smaller screens */
+    }
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+`}</style>
+
+
 
 
 {/* Loan Process Section with 3D Card Effect */}

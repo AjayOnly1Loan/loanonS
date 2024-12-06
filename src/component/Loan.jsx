@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container ,Link} from '@mui/material';
 import AmountImage from '../assets/image/rupees.png'; // Replace with your amount icon image path
 import TenureImage from '../assets/image/tenure.png'; // Replace with your tenure icon image path
 import UnsecureLoanImage from '../assets/image/unsecure.png'; // Replace with your unsecure loan icon image path
@@ -8,6 +8,8 @@ import disbursal from '../assets/image/9.webp';
 
 const Loan = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true); // State to control animation
+  const [animationState, setAnimationState] = useState('running'); // Control the animation play state
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -29,6 +31,11 @@ const Loan = () => {
     };
   }, []);
 
+  const handleClick = () => {
+    // Toggle the animation state to pause or resume the animation
+    setAnimationState((prev) => (prev === 'running' ? 'paused' : 'running'));
+  };
+
   return (
     <Container ref={containerRef} sx={{ mt: 6, overflow: 'hidden' }}>
       <Box
@@ -38,11 +45,14 @@ const Loan = () => {
           justifyContent: 'center',
           alignItems: 'center',
           overflow: 'hidden',
-          animation: {
-            xs: 'none',
-            md: isVisible ? 'marquee 20s linear infinite' : 'none',
-          },
+          animation: isAnimating
+            ? isVisible
+              ? 'marquee 10s linear infinite'
+              : 'none'
+            : 'none', // Only animate if isAnimating is true
+          animationPlayState: animationState, // Control the play state of the animation
         }}
+        onClick={handleClick} // Toggle animation on box click
       >
         {/* Amount Box */}
         <Box sx={commonBoxStyles}>
@@ -106,18 +116,22 @@ const Loan = () => {
 
         {/* Unsecure Loan Box */}
         <Box sx={commonBoxStyles}>
-          <Typography variant="h5" gutterBottom sx={{ color: 'white' }}>
-            Unsecure Loan
-          </Typography>
-          <img
-            src={UnsecureLoanImage}
-            alt="Unsecure Loan Icon"
-            style={{ width: 50, height: 50, marginBottom: '8px' }}
-          />
-          <Typography variant="body1" sx={{ color: 'white' }}>
-            Start now
-          </Typography>
-        </Box>
+        <Link href="/apply-now" sx={{ color: 'white', textDecoration: 'underline' }}>
+
+  <Typography variant="h5" gutterBottom sx={{ color: 'white' }}>
+    Unsecured Loan
+  </Typography>
+  <img
+    src={UnsecureLoanImage}
+    alt="Unsecure Loan Icon"
+    style={{ width: 50, height: 50, marginBottom: '8px' }}
+  />
+  <Typography variant="body1" sx={{ color: 'white' }}>
+      Start Now
+  </Typography>
+  </Link>
+
+</Box>
       </Box>
 
       {/* Define keyframes for animations */}

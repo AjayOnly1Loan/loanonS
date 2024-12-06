@@ -74,10 +74,10 @@ using our services.
             >
                 1. Definitions
             </Typography>
-            <Typography>
+        <Typography sx={{fontFamily: 'cursive'}}>
                 <strong>● Borrower:</strong> A salaried individual applying for a loan.
             </Typography>
-            <Typography>
+            <Typography sx={{fontFamily: 'cursive'}}>
                 <strong>● Loan:</strong> The financial product offered by the Company, including the principal amount, 
                 interest, and any applicable fees.
             </Typography>
@@ -99,10 +99,10 @@ using our services.
     >
         2. Eligibility
     </Typography>
-    <Typography>
+    <Typography sx={{fontFamily: 'cursive'}}>
         To be eligible for a loan through loanonsalary.com, you must:
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>Be an Indian citizen or its resident with a valid PAN and Aadhaar card.</li>
         <li>Be between 21 and 58 years of age.</li>
         <li>Be employed with a stable income from a registered organization.</li>
@@ -121,7 +121,7 @@ using our services.
     >
         3. Loan Terms
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li><b>Loan Amount:</b> ₹5,000 to ₹1,00,000.</li>
         <li><b>Loan Tenure:</b> Flexible tenure up to 90 days, based on the loan amount and borrower profile.</li>
         <li><b>Interest Rate:</b> The interest rate will be communicated at the time of loan approval and may vary based on the borrower's creditworthiness and employment stability.</li>
@@ -139,11 +139,11 @@ using our services.
     >
         4. Application Process
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li><b>Online Application:</b> Complete the loan application form available on loanonsalary.com.</li>
         <li><b>Document Submission:</b> Upload the following documents:
-            <ul>
-                <li>PAN Card and Aadhaar Card (for identity verification).</li>
+        <ul style={{fontFamily: 'cursive'}}>
+        <li>PAN Card and Aadhaar Card (for identity verification).</li>
                 <li>Latest salary slips (last 3 months).</li>
                 <li>Bank statements (last 6 months).</li>
                 <li>Employment proof (such as an appointment letter or ID card).</li>
@@ -164,7 +164,7 @@ using our services.
     >
         5. Loan Disbursement
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>The approved loan amount will be credited directly to the bank account provided during the application process.</li>
         <li>Disbursement typically occurs within 5 minutes after loan approval.</li>
     </ul>
@@ -180,18 +180,18 @@ using our services.
     >
         6. Repayment Terms
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li><b>Repayment Schedule:</b> The repayment schedule will be shared at the time of loan disbursement and can be made in one go.</li>
         <li><b>Payment Modes:</b> 
-            <ul>
-                <li>Bank transfer (NEFT/RTGS/IMPS).</li>
+        <ul style={{fontFamily: 'cursive'}}>
+        <li>Bank transfer (NEFT/RTGS/IMPS).</li>
                 <li>UPI (Unified Payment Interface).</li>
                 <li>Auto-Debit (ECS/NACH).</li>
             </ul>
         </li>
         <li><b>Late Payments:</b> 
-            <ul>
-                <li>Late payment penalties will be applied as per the loan agreement.</li>
+        <ul style={{fontFamily: 'cursive'}}>
+        <li>Late payment penalties will be applied as per the loan agreement.</li>
                 <li>Continuous default may lead to legal action and impact your credit score.</li>
             </ul>
         </li>
@@ -208,7 +208,7 @@ using our services.
     >
         7. Fees and Charges
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li><b>Processing Fee:</b> Will be charged as per the loan agreement (non-refundable).</li>
         <li><b>Late Payment Penalty:</b> Will be charged as per the loan agreement.</li>
         <li><b>Prepayment Charges:</b> No charges for early repayment, unless specified in the Loan Agreement.</li>
@@ -225,7 +225,7 @@ using our services.
     >
         8. Borrower’s Responsibilities
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>Use the loan for personal financial needs only and not for any unlawful purposes.</li>
         <li>Provide accurate and truthful information during the application and throughout the loan tenure.</li>
         <li>Notify the Company of any changes in employment, income, or contact details.</li>
@@ -245,7 +245,7 @@ using our services.
     <Typography>
         In the event of default, the Company may:
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>Report the defaulter to credit bureaus, which may affect your credit score.</li>
         <li>Initiate legal proceedings for the recovery of the outstanding amount.</li>
         <li>Engage third-party recovery agents to recover the dues, in accordance with applicable laws.</li>
@@ -278,7 +278,7 @@ using our services.
     <Typography>
         The Company shall not be liable for:
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>Any indirect or consequential damages arising from the use of our services.</li>
         <li>Delays in loan processing or disbursement due to factors beyond our control.</li>
         <li>Financial losses due to inaccurate or incomplete information provided by the Borrower.</li>
@@ -297,7 +297,7 @@ using our services.
     <Typography>
         We reserve the right to terminate or suspend your access to our services without prior notice if:
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>You violate these Terms.</li>
         <li>You provide false or misleading information.</li>
         <li>You engage in fraudulent activities.</li>
@@ -344,7 +344,7 @@ using our services.
     <Typography>
         For any queries, assistance, or complaints, please contact us:
     </Typography>
-    <ul>
+    <ul style={{fontFamily: 'cursive'}}>
         <li>Datta Finance and Trading Private Limited</li>
         <li>Office Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301</li>
         <li>Email: info@loanonsalary.com</li>

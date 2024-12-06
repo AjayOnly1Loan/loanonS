@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/image/logo.jpeg'; // Adjust the path based on your directory structure
 import ICICIIcon from '../assets/image/YESBANK.NS_BIG.svg'; 
 import AXISIcon from '../assets/image/HDFC_Bank_Logo.svg';
-import IndusIndIcon from '../assets/image/indusland-icon.png';
 import repayLoanBanner from '../assets/image/Repay (2).jpg';
 
 import { Container, Grid, Box, TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';

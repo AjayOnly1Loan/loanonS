@@ -1,8 +1,7 @@
 import React from 'react';
 import { TextField, Button, Grid, Typography, Box } from '@mui/material';
 import './ContactUs.css'; // Custom CSS for hover effects
-import aboutVideo from '../assets/videos/Your paragraph text (3) (1).mp4'; // Adjust the path if necessary
-import leftVideo from '../assets/videos/Bold Sale Brand Website Homepage Banner.mp4'; // Adjust the path for the left video
+import contctus from '../assets/image/Contact Us.jpg'; // Adjust the path if necessary
 
 const ContactUs = () => {
   const handleSubmit = (e) => {
@@ -12,102 +11,106 @@ const ContactUs = () => {
 
   return (
     <>
-      {/* Video Section */}
-      <Box 
-        sx={{ 
-          position: 'relative',
-          width: '100%',
-          height: { xs: '50vh', md: '100vh' }, // Responsive height
-          overflow: 'hidden',
-          mb: 2, // Optional: margin-bottom
-        }}
-      >
-        <Box 
-          component="video"
-          src={aboutVideo}
-          autoPlay
-          muted
-          
-          playsInline
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%', // Full width
-            height: '100%', // Full height
-            objectFit: 'cover', // Video covers container
-          }}
-        />
-      </Box>
+   <Box className="banner-inner" sx={{ padding: '25px'  }}>
+  <img src={contctus} style={{ width: '100%', height: '100%', maxHeight: '500px', borderRadius:'50px'}} alt="Repay Loan" />
+</Box>
 
-      {/* Contact Information Section */}
+{/* Contact Information Section */}
+<Box
+  sx={{
+    width: '100%',
+    textAlign: 'center',
+    padding: '20px',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+    borderRadius: '8px',
+    boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
+    mt: '20px', // Margin-top
+  }}
+>
+  <Typography variant="h2" sx={{ color: 'black', fontFamily: 'cursive' }}>
+    Get in touch with us
+  </Typography>
+
+  <Grid 
+    container 
+    spacing={1} 
+    justifyContent="center" 
+    mt={3}
+    sx={{ 
+      display: 'flex', 
+      flexDirection: 'row', // Always row
+      alignItems: 'center', // Center items horizontally
+    }} 
+  >
+    <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
       <Box
+        className="hover-box"
         sx={{
-          width: '100%',
+          padding: '20px',  // Reduced padding inside the box
+          transition: '0.3s',
+          borderRadius: '10px',
           textAlign: 'center',
-          padding: '20px',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-          borderRadius: '8px',
-          boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
-          mt: '20px', // Margin-top
+          marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+          width: '100%',  // Ensure it takes full width
+          maxWidth: '350px', // Max width for each box to keep it consistent
+          height: '250px', // Fixed height for all boxes to make them the same size
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center', // Center content vertically within the box
         }}
       >
-        <Typography variant="h2" sx={{ color: 'black', fontFamily:'cursive' }}>
-          Get in touch with us
-        </Typography>
-
-
-        <Grid container spacing={1} justifyContent="center" mt={3}> {/* Reduced spacing */}
-  <Grid item xs={12} sm={3.5}>
-    <Box
-      className="hover-box"
-      sx={{
-        
-        padding: '20px',  // Reduced padding inside the box
-        transition: '0.3s',
-        borderRadius: '10px',
-        textAlign: 'center',
-        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
-      }}
-    >
-      <i className="fas fa-envelope"></i>
-      <Typography sx={{ fontFamily: 'cursive' }}>Email: info@loanonsalary.com</Typography>
-    </Box>
-  </Grid>
-  <Grid item xs={12} sm={3.5}>
-    <Box
-      className="hover-box"
-      sx={{
-        padding: '20px',  // Reduced padding inside the box
-        transition: '0.3s',
-        borderRadius: '10px',
-        textAlign: 'center',
-        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
-      }}
-    >
-      <i className="fas fa-phone-alt"></i>
-      <Typography sx={{ fontFamily: 'cursive' }}>Phone: +91 9220535528</Typography>
-    </Box>
-  </Grid>
-  <Grid item xs={12} sm={3.5}>
-    <Box
-      className="hover-box"
-      sx={{
-        padding: '20px',  // Reduced padding inside the box
-        transition: '0.3s',
-        borderRadius: '10px',
-        textAlign: 'center',
-        marginBottom: '10px',  // Added margin bottom to reduce space between boxes
-      }}
-    >
-      <i className="fas fa-map-marker-alt"></i>
-      <Typography sx={{ fontFamily: 'cursive' }}>Address:  1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301.</Typography>
-    </Box>
-  </Grid>
-</Grid>
-
-
+        <i className="fas fa-envelope"></i>
+        <Typography sx={{ fontFamily: 'cursive' }}>Email: info@loanonsalary.com</Typography>
       </Box>
+    </Grid>
+
+    <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box
+        className="hover-box"
+        sx={{
+          padding: '20px',  // Reduced padding inside the box
+          transition: '0.3s',
+          borderRadius: '10px',
+          textAlign: 'center',
+          marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+          width: '100%',  // Ensure it takes full width
+          maxWidth: '350px', // Max width for each box to keep it consistent
+          height: '250px', // Fixed height for all boxes to make them the same size
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center', // Center content vertically within the box
+        }}
+      >
+        <i className="fas fa-phone-alt"></i>
+        <Typography sx={{ fontFamily: 'cursive' }}>Phone: +91 9220535528</Typography>
+      </Box>
+    </Grid>
+
+    <Grid item xs={12} sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box
+        className="hover-box"
+        sx={{
+          padding: '20px',  // Reduced padding inside the box
+          transition: '0.3s',
+          borderRadius: '10px',
+          textAlign: 'center',
+          marginBottom: '10px',  // Added margin bottom to reduce space between boxes
+          width: '100%',  // Ensure it takes full width
+          maxWidth: '350px', // Max width for each box to keep it consistent
+          height: '250px', // Fixed height for all boxes to make them the same size
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center', // Center content vertically within the box
+        }}
+      >
+        <i className="fas fa-map-marker-alt"></i>
+        <Typography sx={{ fontFamily: 'cursive' }}>Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301.</Typography>
+      </Box>
+    </Grid>
+  </Grid>
+</Box>
+
+
 
       {/* Contact Us Form */}
       
@@ -185,7 +188,6 @@ const ContactUs = () => {
                     fontFamily:'cursive',
                     padding: '10px', 
                     backgroundColor: '#0b2747', 
-                    '&:hover': { backgroundColor: 'orange' }, 
                     borderRadius: '8px',
                   }} 
                 >

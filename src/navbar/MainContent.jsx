@@ -145,10 +145,8 @@ function MainContent() {
           borderRadius: '80px',
           fontWeight: 'bold',
           fontSize: { xs: '14px', sm: '16px' },
-          padding: { xs: '8px 16px', sm: '6px 220px' },
-          '&:hover': {
-            backgroundColor: '#FFAA00',
-          },
+          padding: { xs: '8px 16px', sm: '6px 230px' },
+          
           fontFamily: 'Great Victorian, cursive', // Apply cursive font to button text
         }}
       >
