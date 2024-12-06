@@ -11,7 +11,7 @@ import './AboutUs.css';
 
 import visionImage from '../assets/image/vison.jpg'; // import vision image 
 import missionImage from '../assets/image/mission.jpg'; // Import mission image
-import aboutUsImage from '../assets/image/loanaboutUs.png'; // Import about us image
+import aboutUsImage from '../assets/image/About (2).jpg'; // Import about us image
 import familyImage from '../assets/image/Downloader-La-270835.jpg'; // Import your rounded person image
 
 const AboutUs = () => {
