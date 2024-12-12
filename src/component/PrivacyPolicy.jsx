@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
             content: [
                 "If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:",
                 "Email: info@loanonsalary.com",
-                "Phone: 9220535528",
+                "Phone:7042334888 ",
                 "Address: Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301"
             ]
         },

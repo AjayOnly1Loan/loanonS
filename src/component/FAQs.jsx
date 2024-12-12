@@ -65,7 +65,7 @@ const FAQs = () => {
   
   {  
       id: 'faq1',  
-      question: '1. What is loanonsalary.com?',  
+      question: '1. What is loanonsalary?',  
       answer: `loanonsalary.com is an online platform operated by Datta Finance and Trading Private Limited, providing short-term personal loans exclusively to salaried individuals in India.`  
   },  
   {  
@@ -157,7 +157,7 @@ const FAQs = () => {
       question: '15. How can I contact customer support?',  
       answer: `For any queries or assistance, you can contact us via:  
       ● Email: info@loanonsalary.com  
-      ● Phone: +91 9220535528  
+      ● Phone: +91 7042334888  
       ● Office Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh -201301`  
   }  
 

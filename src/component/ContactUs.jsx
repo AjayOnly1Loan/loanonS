@@ -82,7 +82,7 @@ const ContactUs = () => {
         }}
       >
         <i className="fas fa-phone-alt"></i>
-        <Typography sx={{ fontFamily: 'cursive' }}>Phone: +91 9220535528</Typography>
+        <Typography sx={{ fontFamily: 'cursive' }}>Phone: +91 7042334888 </Typography>
       </Box>
     </Grid>
 

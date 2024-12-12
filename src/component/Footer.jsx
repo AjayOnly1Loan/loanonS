@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="contact-us" color="inherit" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Phone style={{ marginRight: '5px' }} /> Phone: 9220535528
+                  <Phone style={{ marginRight: '5px' }} /> Phone: 7042334888 
                 </Link>
               </li>
               <li>

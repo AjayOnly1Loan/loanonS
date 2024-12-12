@@ -348,7 +348,7 @@ using our services.
         <li>Datta Finance and Trading Private Limited</li>
         <li>Office Address: 1710, 17th Floor, World Trade Tower, Sector -16, Noida, Uttar Pradesh - 201301</li>
         <li>Email: info@loanonsalary.com</li>
-        <li>Phone: 9220535528</li>
+        <li>Phone: 7042334888 </li>
     </ul>
 </Box>
 <Divider sx={{ my: 2 }} />
