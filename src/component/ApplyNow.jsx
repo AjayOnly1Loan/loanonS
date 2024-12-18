@@ -230,7 +230,7 @@ const ApplyNow = () => {
   
     // Proceed with form submission if there are no errors
     try {
-      const response = await fetch('https://crm.loanonsalary.com/api/leads', {
+      const response = await fetch('https://api.loanonsalary.com/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
