@@ -10,6 +10,7 @@ import {
   Checkbox,
   FormControlLabel,
   MenuItem,
+  Autocomplete,
   Link,
 } from '@mui/material';
 import {
@@ -28,6 +29,8 @@ const ApplyNow = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
+  const [cityOptions, setCityOptions] = useState([]);
+
   const [formValues, setFormValues] = useState({
     fName: '',
     lName:' ',
@@ -167,23 +170,30 @@ const ApplyNow = () => {
   const handlePincodeChange = async (e) => {
     const value = e.target.value;
   
-    // Only allow numeric input and ensure the pincode has no more than 6 digits
     if (/^\d{0,6}$/.test(value)) {
       setFormValues({ ...formValues, pinCode: value });
   
-      // If the pincode has exactly 6 digits, fetch city and state
       if (value.length === 6) {
         try {
-          const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
+          const response = await fetch(
+            `https://api.postalpincode.in/pincode/${value}`
+          );
           const data = await response.json();
   
-          if (data[0].Status === "Success") {
-            const { Block, State } = data[0].PostOffice[0];
-            setCity(Block);
+          if (data[0].Status === 'Success') {
+            // Filter out "NA" and remove duplicates
+            const cities = data[0].PostOffice
+              .map((office) => office.Block)
+              .filter((city) => city && city !== 'NA'); // Exclude "NA" and empty values
+            
+            const uniqueCities = [...new Set(cities)]; // Remove duplicates
+  
+            const { State } = data[0].PostOffice[0];
+  
+            setCityOptions(uniqueCities); // Set the filtered and unique city options
             setState(State);
-            console.log('City:', Block, 'State:', State);
           } else {
-            // Handle invalid pin code case
+            setCityOptions([]);
             setCity('');
             setState('');
             Swal.fire({
@@ -201,17 +211,18 @@ const ApplyNow = () => {
           });
         }
       } else {
-        // Reset city and state if pincode is incomplete
+        setCityOptions([]);
         setCity('');
         setState('');
       }
     } else {
-      // Clear the pincode and reset city/state if input is invalid
       setFormValues({ ...formValues, pinCode: '' });
+      setCityOptions([]);
       setCity('');
       setState('');
     }
   };
+  
   
 
 
@@ -367,98 +378,82 @@ const ApplyNow = () => {
                   {field.options &&
                     field.options.map((option) => (
                       <MenuItem key={option} value={option}>
- {option === "M" ? "Male" : option === "F" ? "Female" : "Others"}
- </MenuItem>
+                    {option === "M" ? "Male" : option === "F" ? "Female" : "Others"}
+                    </MenuItem>
                     ))}
                 </TextField>
               </Grid>
             ))}
 
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-           
-          }}
-        >
-          <TextField
-            fullWidth
-            required
-            name='pinCode'
-            label="Pincode"
-            value={formValues.pinCode}
-            onChange={handlePincodeChange}
-            error={!!formErrors.pinCode}
-            helperText={formErrors.pinCode || ''}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PinDrop sx={{ color: 'rgba(0, 0, 0, 0.6)' }} />
-                </InputAdornment>
-              ),
-            }}
-           
-          />
-        </Grid>
-        <Grid
-              item
-              xs={12}
-              md={6}
-              sx={{
-              
-              }}
-            >
+            <Grid item xs={12} md={6}>
               <TextField
                 fullWidth
                 required
-                name='city'
-                label="City"
-                value={city}
-                error={!!formErrors.city}
-                helperText={formErrors.city || ''}
+                name="pinCode"
+                label="Pincode"
+                value={formValues.pinCode}
+                onChange={handlePincodeChange}
+                error={!!formErrors.pinCode}
+                helperText={formErrors.pinCode || ''}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LocationOn />
+                      <PinDrop sx={{ color: 'rgba(0, 0, 0, 0.6)' }} />
                     </InputAdornment>
                   ),
                 }}
-              >
-            
-                  
-              </TextField>
+              />
             </Grid>
 
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-            
+            <Grid item xs={12} md={6}>
+            <Autocomplete
+        fullWidth
+        options={cityOptions}
+        value={city}
+        onChange={(event, newValue) => setCity(newValue || '')}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            required
+            name="city"
+            label="City"
+            error={!!formErrors.city}
+            helperText={formErrors.city || ''}
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocationOn sx={{ color: 'rgba(0, 0, 0, 0.6)' }} />
+                </InputAdornment>
+              ),
             }}
-          >
-            <TextField
-              fullWidth
-              required
-              name='state'
-              label="State"
-              value={state}
-              error={!!formErrors.state}
-              helperText={formErrors.state || ''}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOn sx={{ color: 'rgba(0, 0, 0, 0.6)' }} />
-                  </InputAdornment>
-                ),
-              }}
-             
-            >
-              
-            </TextField>
+          />
+        )}
+      />
+
+
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                required
+                name="state"
+                label="State"
+                value={state}
+                error={!!formErrors.state}
+                helperText={formErrors.state || ''}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOn sx={{ color: 'rgba(0, 0, 0, 0.6)' }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
           </Grid>
-           
+      
 
 
             <Grid item xs={12} sx={{fontFamily:'cursive'}}>
@@ -483,7 +478,6 @@ const ApplyNow = () => {
                 </Typography>
               )}
             </Grid>
-          </Grid>
 
           <Button
                   variant="contained"
